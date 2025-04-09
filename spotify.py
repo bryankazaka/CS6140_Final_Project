@@ -150,7 +150,11 @@ while True:
           k = int(input())
         except:
           print("Not a number.")
-      labels = gen_kmeans(df, k)
+      try:
+        labels = gen_kmeans(df, k)
+      except:
+        print("Too many genres for the input dataset. Choose a smaller value.")
+        continue
 
     # Split data into genres
     k = np.max(labels)
@@ -202,10 +206,16 @@ while True:
           id = int(input())
         except:
           print("Not a number.")
-      playlist(id)
+      try:
+        playlist(id, names[id])
+      except:
+        print("Invalid ID.")
     else:
       df = pd.read_csv('spotify_songs.csv').drop_duplicates(subset=['track_id'])
-      recommend(df)
+      try:
+        recommend(df)
+      except:
+        print("Invalid IDs.")
 
   else:
     break

@@ -18,7 +18,7 @@ def gen_kmeans(df, K):
 
   return predictions
 
-def playlist(num):
+def playlist(num, name):
   # Read track ids for playlist
   try:
     file = open('./ids/id' + str(num) + '.txt', 'r')
@@ -37,8 +37,8 @@ def playlist(num):
   token = 'Bearer ' + resp.json()['access_token']
 
   # Create new empty playlist
-  print("Enter playlist name:")
-  name = input()
+  #print("Enter playlist name:")
+  #name = input()
   resp = requests.post(url='https://api.spotify.com/v1/users/3172ndz4p4ozhsz6cho67s4jl2ga/playlists', 
     json={'name': name, 'public': True},
     headers={'Content-Type': 'application/json', 'Authorization': token})
