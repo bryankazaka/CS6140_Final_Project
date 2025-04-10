@@ -7,11 +7,11 @@ import warnings
 
 def recommend(df):
   # Load 30000 dataset
-  songs = df[['track_name', 'track_artist']]
-  ids = df[['track_id']]
-  data = df[['track_popularity', 
+  songs = pd.DataFrame(df[['track_name', 'track_artist']])
+  ids = pd.DataFrame(df[['track_id']])
+  data = pd.DataFrame(df[['track_popularity', 
           'danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness', 
-          'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo']]
+          'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo']])
 
   pos_ids = []
   while True:
